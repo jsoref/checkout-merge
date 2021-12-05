@@ -13,9 +13,6 @@ jobs:
       pull-requests: read
     runs-on: ubuntu-latest
     if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
-    concurrency:
-      group: count-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
     steps:
     - name: checkout-merge
       if: "contains(github.event_name, 'pull_request')"
