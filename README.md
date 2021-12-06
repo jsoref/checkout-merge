@@ -1,3 +1,5 @@
 # checkout-merge
 
-This change is loses a race.
+This repository uses @actions/checkout.
+
+This change is resolved a race.
