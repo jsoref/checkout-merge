@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
     steps:
+    - name: debug
+      run: cat $GITHUB_EVENT_PATH
     - name: checkout-merge
       if: "contains(github.event_name, 'pull_request')"
       uses: actions/checkout@v2
