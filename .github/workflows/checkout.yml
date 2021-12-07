@@ -11,14 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     if: "contains(github.event_name, 'pull_request') || github.event_name == 'push'"
     steps:
+    - name: checkout
+      uses: actions/checkout@v2
     - name: checkout-merge
       if: "contains(github.event_name, 'pull_request')"
-      uses: actions/checkout@v2
-      with:
-        ref: refs/pull/${{github.event.pull_request.number}}/merge
-    - name: checkout
-      if: github.event_name == 'push'
-      uses: actions/checkout@v2
+      run: |
+        if ! git fetch origin refs/pull/${{github.event.pull_request.number}}/merge; then
+          echo "::notice ::Can't get merge commit… Is PR merged? If not, there's probably a conflict. Resolve it to get workflow feedback."
+          echo "SKIP=1" >> $GITHUB_ENV
+          exit 0
+        fi
+        git checkout FETCH_HEAD
     - name: check-count
+      if: env.SKIP != '1'
       id: count
       run: git ls-files -z | xargs -0 wc
