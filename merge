@@ -25,6 +25,7 @@ if [ "$(git rev-parse --is-shallow-repository)" = 'true' ]; then
 fi
 git fetch $UNSHALLOW origin "$INPUT_BASE_REF" ||
     report_failure "Can't get history for base_ref ($INPUT_BASE_REF). Please contact support for $GITHUB_ACTION_REPOSITORY"
+
 GITHUB_BASE_SHA=$(git rev-parse FETCH_HEAD)
 
 git -c advice.detachedHead=false checkout "$GITHUB_BASE_SHA" || {
