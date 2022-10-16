@@ -41,3 +41,4 @@ git merge -m "Merge $GITHUB_HEAD_SHA into $GITHUB_BASE_SHA" FETCH_HEAD ||
     report_failure "Can't generate merge; there's probably a conflict. Resolve it to get workflow feedback."
 
 echo '::set-output name=status::success'
+
