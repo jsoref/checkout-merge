@@ -52,6 +52,7 @@ for users to understand, and allow you to decide whether your workflow should
 
 ### Outputs
 
+
 * `message` - Message describing what prevented the action from producing a merge commit.
 
 * `status` - `success` or `failed`
