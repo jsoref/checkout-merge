@@ -60,3 +60,7 @@ for users to understand, and allow you to decide whether your workflow should
 ### Environment products
 
 * `$MERGE_FAILED` will be set to `1` if a merge can't be created.
+
+## notes
+
+This isn't interesting.
