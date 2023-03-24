@@ -14,6 +14,8 @@ check out `refs/pull/X/merge` and it doesn't exist, the action will make three
 attempts (failing each time), and then leave your workflow in a failed state
 and your user with a fairly confusing log.
 
+
+
 If you instead use [@actions/checkout](https://github.com/actions/checkout) to
 check out the base commit, then you can use this action to get a merge commit.
 If it isn't able to, it can produce an error message that is hopefully easier
