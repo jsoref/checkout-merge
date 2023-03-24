@@ -6,6 +6,7 @@ With GitHub.com's current implementation as of Dec 8, 2021, if it was able to ma
 merge commit, and then a push causes the current state to be not mergable, the
 `refs/pull/X/merge` ref may stick around resulting in confusing output.
 
+
 With this action, instead, you will not get a merge commit.
 
 If you use [@actions/checkout](https://github.com/actions/checkout) to try to
